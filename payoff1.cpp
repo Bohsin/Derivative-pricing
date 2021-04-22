@@ -15,6 +15,8 @@ double PayOff::operator() (double spot) const
 		return max(spot - strike, 0);
 	case put:
 		return max(strike - spot, 0);
+	case digitalCall:
+		return (spot > strike ? 1 : 0);
 	default:
 		throw("Unknow option type.");
 	}
